@@ -1,0 +1,8 @@
+.container {
+  margin: 30px;
+  padding: 15px;
+  border: solid 1px $white;
+  border-radius: 5px;
+  background-color: darken($color: $dark, $amount: 8);
+  box-shadow: 1px 1px 24px $white;
+}

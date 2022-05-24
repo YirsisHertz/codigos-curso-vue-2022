@@ -7,34 +7,42 @@
     <div class="col-12 col-md-4">
       <form @submit.prevent="registrarProyecto">
         <div class="mb-3">
-          <label class="form-label">Proyecto</label>
-          <input
-            v-model.trim="proyecto"
-            type="text"
-            class="form-control"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Actividad</label>
-          <select v-model.trim="tipo" class="form-select" required>
-            <option disabled selected value="">Seleccione un tipo...</option>
-            <option>Aplicacion Web con Vue.js</option>
-            <option>Backend Service con Node.js</option>
-            <option>App Movil con React Native</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-check-label">
-            Urgente
+          <label class="form-label w-75">
+            Proyecto
+            <input
+              v-model.trim="proyecto"
+              type="text"
+              class="form-control"
+              required
+            />
           </label>
-          <input
-            v-model.trim="urgente"
-            type="checkbox"
-            class="form-check-input"
-          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label w-75">
+            Actividad
+
+            <select v-model.trim="tipo" class="form-select" required>
+              <option disabled selected value="">Seleccione un tipo...</option>
+              <option>Diseño Grafico</option>
+              <option>Nuevo Curso</option>
+              <option>Actualizar Curso</option>
+              <option>Programación</option>
+              <option>Tarea</option>
+              <option>Otro</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="mb-3 w-75">
+          <label class="form-check-label ml-3">
+            Urgente
+            <input
+              v-model.trim="urgente"
+              type="checkbox"
+              class="form-check-input"
+            />
+          </label>
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -103,7 +111,7 @@ export default {
         if (proyecto.completado) completados++;
       });
 
-      return (completados * 100) / this.numeroProyectos || 0;
+      return Math.round((completados * 100) / this.numeroProyectos, -1) || 0;
     },
   },
   mounted() {

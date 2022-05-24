@@ -1,11 +1,7 @@
 <template>
-  <div class="row">
-    <div class="col-12 col-md-3">
-      <h1>Formularios</h1>
-    </div>
-    <div class="col-12 col-md-6">
-      <img width="100" :src="url" />
-    </div>
+  <div class="text-center">
+    <img width="70" :src="url" />
+    <h2>Administrador de Proyectos</h2>
   </div>
   <hr />
 </template>

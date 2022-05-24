@@ -11,8 +11,8 @@
   </div>
 
   <div class="table-responsive">
-    <table class="table table-dark">
-      <thead>
+    <table class="table table-hover">
+      <thead class="table-dark">
         <tr>
           <th>#</th>
           <th>Proyecto</th>
@@ -29,13 +29,17 @@
           <td>{{ proyecto.tipo }}</td>
           <td
             @click="cambiarEstado(proyecto, 'urgente')"
-            :class="proyecto.urgente ? 'bg-success' : 'bg-danger'"
+            :class="`${
+              proyecto.urgente ? 'bg-info' : 'bg-warning'
+            } text-dark fw-bold text-center`"
           >
             {{ proyecto.urgente ? "SI" : "NO" }}
           </td>
           <td
             @click="cambiarEstado(proyecto, 'completado')"
-            :class="proyecto.completado ? 'bg-success' : 'bg-danger'"
+            :class="`${
+              proyecto.completado ? 'bg-success' : 'bg-danger'
+            } text-white fw-bold text-center`"
           >
             {{ proyecto.completado ? "Completo" : "Incompleto" }}
           </td>
