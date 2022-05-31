@@ -1,5 +1,5 @@
 <template>
-  <h1>Home page</h1>
+  <h1>Stickers Page</h1>
 </template>
 
 <script>
