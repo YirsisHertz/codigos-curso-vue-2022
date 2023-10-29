@@ -13,7 +13,7 @@ import type { PublicationEntity } from "../../domain/entities/publications.entit
 
 import { firestore } from "../../config/firebaseConfig";
 
-export class PublicationModel extends PublicationRepository {
+export class PublicationModel implements PublicationRepository {
   findAll() {
     return query(
       collection(firestore, "publications"),

@@ -1,11 +1,15 @@
-import { PublicationStorageModel } from "@/database/blog/publicationStorage.model";
+import { PublicationStorageRepository } from "../domain/repository/blog/publicationStorage.repository";
 
 export class PublicationStorageService {
-  static storage(file: File) {
-    return new PublicationStorageModel().storage(file);
+  constructor(
+    private readonly publicationStorageRespository: PublicationStorageRepository
+  ) {}
+
+  storage(file: File) {
+    return this.publicationStorageRespository.storage(file);
   }
 
-  static getDownload(file: File) {
-    return new PublicationStorageModel().getDownload(file);
+  getDownload(file: File) {
+    return this.publicationStorageRespository.getDownload(file);
   }
 }

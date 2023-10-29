@@ -10,7 +10,7 @@ import { AuthRepository } from "../../domain/repository/auth/auth.repository";
 
 import { auth, googleAuthProvider } from "../../config/firebaseConfig";
 
-export class AuthModel extends AuthRepository {
+export class AuthModel implements AuthRepository {
   signInEmailAndPassword(
     email: string,
     password: string

@@ -4,7 +4,7 @@ import { PublicationStorageRepository } from "../../domain/repository/blog/publi
 
 import { storage } from "../../config/firebaseConfig";
 
-export class PublicationStorageModel extends PublicationStorageRepository {
+export class PublicationStorageModel implements PublicationStorageRepository {
   storage(file: File) {
     const storageRef = ref(storage, `publications/${file.name}`);
 

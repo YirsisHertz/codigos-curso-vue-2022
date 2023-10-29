@@ -1,7 +1,8 @@
 import { PublicationsService } from "../../../services/publications.service";
+import { PublicationModel } from "../../../database/blog/publication.model";
 
 export class LoadPublicationsUseCase {
   static execute() {
-    return PublicationsService.findAll();
+    return new PublicationsService(new PublicationModel()).findAll();
   }
 }

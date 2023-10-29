@@ -1,12 +1,14 @@
-import { PublicationModel } from "../database/blog/publication.model";
 import type { PublicationEntity } from "../domain/entities/publications.entity";
+import { PublicationRepository } from "../domain/repository/blog/publication.repository";
 
 export class PublicationsService {
-  static findAll() {
-    return new PublicationModel().findAll();
+  constructor(private readonly publicationRepository: PublicationRepository) {}
+
+  findAll() {
+    return this.publicationRepository.findAll();
   }
 
-  static create(publication: PublicationEntity) {
-    return new PublicationModel().create(publication);
+  create(publication: PublicationEntity) {
+    return this.publicationRepository.create(publication);
   }
 }

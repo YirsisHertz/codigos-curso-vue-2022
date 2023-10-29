@@ -1,22 +1,24 @@
-import { AuthModel } from "../database/auth/auth.model";
+import { AuthRepository } from "../domain/repository/auth/auth.repository";
 
 export class AuthService {
-  public static signInWithEmailAndPassword(email: string, password: string) {
-    return new AuthModel().signInEmailAndPassword(email, password);
+  constructor(private readonly authRepository: AuthRepository) {}
+
+  public signInWithEmailAndPassword(email: string, password: string) {
+    return this.authRepository.signInEmailAndPassword(email, password);
   }
 
-  public static signInWithGoogle() {
-    return new AuthModel().signInWithGoogle();
+  public signInWithGoogle() {
+    return this.authRepository.signInWithGoogle();
   }
 
-  public static registerUserWithEmailAndPassword(
-    email: string,
-    password: string
-  ) {
-    return new AuthModel().registerUserWithEmailAndPassword(email, password);
+  public registerUserWithEmailAndPassword(email: string, password: string) {
+    return this.authRepository.registerUserWithEmailAndPassword(
+      email,
+      password
+    );
   }
 
-  public static logout() {
-    return new AuthModel().logout();
+  public logout() {
+    return this.authRepository.logout();
   }
 }
